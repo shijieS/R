@@ -1,0 +1,32 @@
+\documentclass[10pt,a4paper]{paper}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{ctex}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{hyperref}
+\author{shijieSun}
+\title{三维相机的姿势快速估计方法}
+
+\begin{document}
+  \SweaveOpts{concordance=TRUE}
+	\maketitle
+	\begin{abstract}
+		鉴于深度相机（比如：Kinect、Primesense等）被用于各种云台上，被用于车辆的识别、三维建模、行人检测，深度相机需要进行标定，不过，多数情况下，使用传统的标定方法（如点标定、线标定、面标定）对深度相机进行标定，往往忽视了深度相机所提供的信息；深度相机可以提供场景中的点到相机的距离信息，如果有些利用这些信息，将会极大的简化标定过程，使其可以自动化地进行标定；本文提出一种可以用于估计相机外参的深度相机自动标定方法，它可以自动地检测地平面，利用相机的已知内参，计算相机的高度，然后，根据规定的坐标系规则，估计相机的在规定坐标系的外参；如果场景中的地面居于主体地位，本算法可以自动地完成相机标定的流程，如果场景中存在部分地面，需要手动框选地面，实现相机的标定；在标定过程中，不需要输入相机的实际高度或者标定点。
+	\end{abstract}
+	
+	\section{介绍}
+	深度相机，即RGB-D相机，是一种可以采集场景中的目标到图像中的信息，目前主流的深度相机包括：Kinect、PrimeSense等；RGB-D相机采集的图片称为深度图，深度图用于表示场景中的目标点到相机的距离的信息；正如其名称，RGB-D相机往往会附带着RGB信息，且在相机出厂之前，已经做了RGB图和深度图之间的对齐调整，且会附带着相机的参数。\\
+	
+	在进行相机标定的时候，由于相机厂家已经提供了相机的内参数，那么只需要对相机的外参数进行估计，即可完成相机的标定，对于相机的外参数进行估计的过程，我们称之为“相机姿势估计”。需要轨迹的相机参数包括：偏航角（$\psi$）、俯仰角（$\varphi $）和侧倾角（$\theta $）[]
+	
+\end{document}
